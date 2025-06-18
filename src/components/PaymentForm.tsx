@@ -40,13 +40,7 @@ function PaymentFrom() {
      await new Promise(resolve => setTimeout(resolve, 1500));
      console.log("Payment processed successfully!" , formData);
      alert("Payment processed successfully!");
-     setFormData({
-      cardName: "",
-      cardNumber: "",
-      cardMonth: "",
-      cardYear: "",
-      cardCvv: "",
-     });
+     setFormData({cardName: "", cardNumber: "", cardMonth: "", cardYear: "", cardCvv: ""});
      setError("");
    } catch (error) {
      console.error("Payment failed:", error);
@@ -61,22 +55,60 @@ function PaymentFrom() {
       <form action="submit">
         {/* card number input  */}
         <label className="block font-medium font-inter text-sm text-black capitalize" htmlFor="Name-on-card">Name on card</label>
-        <input name="cardName" onChange={onChanngeHandler} className="w-full border border-gray-500 rounded-sm mt-2 p-2 outline-none" type="text" placeholder="Meet Petal" />
+        <input 
+          name="cardName" 
+          onChange={onChanngeHandler} 
+          value={formData.cardName}
+          className="w-full border border-gray-500 rounded-sm mt-2 p-2 outline-none" 
+          type="text" 
+          placeholder="Meet Petal" 
+        />
 
         {/* card number  input */}
         <label className="block font-medium font-inter mt-2 text-sm capitalize text-black" htmlFor="Name-on-card">card number</label>
-        <input name="cardNumber" onChange={onChanngeHandler} className="w-full border border-gray-500 rounded-sm mt-2 p-2 outline-none" type="text" placeholder="0000 0000 0000 0000" />
+        <input 
+          name="cardNumber" 
+          onChange={onChanngeHandler} 
+          value={formData.cardNumber}
+          className="w-full border border-gray-500 rounded-sm mt-2 p-2 outline-none" 
+          type="text" 
+          placeholder="0000 0000 0000 0000" 
+        />
 
         {/* card expirstion  */}
         <label className="block font-medium font-inter mt-2 text-sm capitalize text-black" htmlFor="Name-on-card">card expirstion</label>
         <div className="w-full flex justify-between  items-center">
-          <input name="cardMonth" onChange={onChanngeHandler} className="mt-2 w-[48%] border border-gray-500 rounded-sm p-2 outline-none" type="text" placeholder="Month" maxLength={2} />
-          <input name="cardYear" onChange={onChanngeHandler} className="mt-2 w-[48%] border border-gray-500 rounded-sm p-2 outline-none" type="text" placeholder="Year" maxLength={4} />
+          <input 
+            name="cardMonth" 
+            onChange={onChanngeHandler} 
+            value={formData.cardMonth}
+            className="mt-2 w-[48%] border border-gray-500 rounded-sm p-2 outline-none" 
+            type="text" 
+            placeholder="Month" 
+            maxLength={2} 
+          />
+          <input 
+            name="cardYear" 
+            onChange={onChanngeHandler} 
+            value={formData.cardYear}
+            className="mt-2 w-[48%] border border-gray-500 rounded-sm p-2 outline-none" 
+            type="text" 
+            placeholder="Year" 
+            maxLength={4} 
+          />
         </div>
 
         {/* card cvv  */}
         <label className="block font-medium font-inter mt-2 text-sm capitalize text-black" htmlFor="Name-on-card">Card security code</label>
-        <input name="cardCvv" onChange={onChanngeHandler} className="w-full border border-gray-500 rounded-sm mt-2 p-2 outline-none" type="text" placeholder="Code"  maxLength={4}/>
+        <input 
+          name="cardCvv" 
+          onChange={onChanngeHandler} 
+          value={formData.cardCvv}
+          className="w-full border border-gray-500 rounded-sm mt-2 p-2 outline-none" 
+          type="text" 
+          placeholder="Code"  
+          maxLength={4}
+        />
 
         {/* submit button  */}
         <button disabled={btnLoading} onClick={onSubmitHandler} className={`w-full mt-4 bg-black  cursor-pointer hover:scale-105 transition-all duration-150 ease-linear text-white rounded-sm   p-2 outline-none ${btnLoading && "opacity-50 cursor-not-allowed"}`}>{btnLoading ? "Loading..." : "Continue"}</button>
