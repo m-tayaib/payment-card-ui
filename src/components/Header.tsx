@@ -6,7 +6,7 @@
  function Header() {
   return (
     <>
-     <h1 className="text-2xl font-bold capitalize text-center">Credit Card Details</h1>
+     <h1 className="text-2xl font-medium capitalize text-center">Credit Card Details</h1>
     {/* payments cards shows  */}
     <div className="flex justify-between items-center rounded-sm border-dashed border-[#d5d5d5] border-1 p-2 mt-4">
      <div><h3 className="text-sm font-bold capitalize">payment <br /> method</h3></div>
